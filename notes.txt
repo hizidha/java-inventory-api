@@ -1,0 +1,28 @@
+## App.java
+        // View All Data
+        List<Item> items = itemRepository.getAll();
+        for (Item item : items) {
+            System.out.println(item);
+        }
+
+        // Create Data
+        Item item1 = new Item("Fish", 19);
+        Item item2 = new Item("Horse", 11);
+        int insertedId1 = itemRepository.add(item1);
+        int insertedId2 = itemRepository.add(item2);
+        System.out.println("Inserted " + insertedId1);
+        System.out.println("Inserted " + insertedId2);
+
+        // Find by ID
+        int findId = 3;
+        Item itemSearched = itemRepository.findById(findId);
+        System.out.println(itemSearched);
+
+        // Update Data
+        Item updatedItem = new Item(insertedId1, "Fish", 4);
+        int updateResult = itemRepository.update(updatedItem);
+        System.out.println("Updated " + updateResult);
+
+        // Delete Data
+        int deleteResult = itemRepository.delete(insertedId2);
+        System.out.println("Deleted " + deleteResult);
